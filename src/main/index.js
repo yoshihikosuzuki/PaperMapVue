@@ -1,4 +1,5 @@
 import { app, BrowserWindow } from 'electron' // eslint-disable-line
+import createMenu from './menu';
 
 /**
  * Set `__static` path to static files in production
@@ -18,9 +19,9 @@ function createWindow() {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 563,
-    useContentSize: true,
-    width: 1000,
+    width: 1600,
+    height: 1000,
+    webPreferences: { webSecurity: false }, // for local file access
   });
 
   mainWindow.loadURL(winURL);
@@ -30,7 +31,10 @@ function createWindow() {
   });
 }
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+  createWindow();
+  createMenu(mainWindow);
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

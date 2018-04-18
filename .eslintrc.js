@@ -10,6 +10,8 @@ module.exports = {
   },
   extends: 'airbnb-base',
   globals: {
+    '$': true,
+    'jQuery': true,
     __static: true
   },
   plugins: [
@@ -24,6 +26,9 @@ module.exports = {
     'import/newline-after-import': 0,
     'no-multi-assign': 0,
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    // avoid (undesirable) error message:
+    //   "'electron' should be listed in the project's dependencies, not devDependencies"
+    'import/no-extraneous-dependencies': ['error', { 'devDependencies': true }]
   }
 }

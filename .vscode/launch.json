@@ -11,7 +11,7 @@
                 "dev"
             ],
             "port": 5858
-        },/*   // TODO: delete after confirming unnecessity
+        },   // TODO: delete after confirming unnecessity
         {
             "name": "Electron: Renderer",
             "type": "chrome",
@@ -19,14 +19,14 @@
             "port": 9223,
             "webRoot": "${workspaceRoot}",
             "timeout": 1000
-        }*/
+        }
     ],
     "compounds": [
         {
             "name": "Electron-Vue: dev",
             "configurations": [
                 "Launch via npm",
-                //"Electron: Renderer"
+                "Electron: Renderer"
             ]
         }
     ]
